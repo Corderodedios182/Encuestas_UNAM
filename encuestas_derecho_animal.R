@@ -3,7 +3,7 @@ library(tidyr)
 library(ggplot2)
 library(waffle)
 
-setwd('/home/carlos/Documentos/Encuestas/')
+setwd('/home/carlos/Documentos/Encuestas_UNAM/')
 
 list.files()
 
@@ -14,6 +14,7 @@ encuestas$Opción <- as.character(encuestas$Opción)
 encuestas$Edad <- as.factor(encuestas$Edad)
 
 #table(encuestas$Pregunta)
+
 conteo <- encuestas %>% 
   group_by(Opción) %>%
   summarise(conteo = n())
@@ -75,6 +76,7 @@ ggplot(conteo, aes(x = Edad,y = encuestados)) +
 head(encuestas)
 
 #Preguntas
+
 for(i in seq(12)){
   eval(parse(text = paste0("encuestas$Pregunta[encuestas$Pregunta == ",i,"] <- 'Pregunta_",i,"'")))
 }
@@ -104,66 +106,16 @@ ggplot(Pregunta_1, aes(x = "", y = Conteo, fill = Pregunta_1, label = Conteo)) +
         axis.title.y = element_blank()) +
   ggtitle(paste0('¿Conoces de la existencia del derecho animal?'))
 
-head(encuestas)
-head(tmp)
+#¿Distribución de Respuestas en las Opciones?
 
-Pregunta_2 <- tmp %>% group_by(Pregunta_2) %>% summarise(Conteo = n()) %>%
-  mutate(Porcentaje = paste0(round(Conteo/sum(Conteo),2)*100,'%')) %>%
-  filter(Pregunta_2 != "")
-
-ggplot(Pregunta_2, aes(x = "", y = Conteo, fill = Pregunta_2, label = Conteo)) + 
-  geom_bar(stat = "identity", position = position_fill()) +
-  geom_text(aes(label = Porcentaje), position = position_fill(vjust = 0.5)) +
-  coord_polar(theta = "y") + 
-  theme_void() +
-  theme(axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  ggtitle(paste0('¿Consideras que los animales tienen derechos?'))
-
-Pregunta_3 <- tmp %>% group_by(Pregunta_3) %>% summarise(Conteo = n()) %>%
-  mutate(Porcentaje = paste0(round(Conteo/sum(Conteo),2)*100,'%')) %>%
-  filter(Pregunta_3 != "")
-
-ggplot(Pregunta_3, aes(x = "", y = Conteo, fill = Pregunta_3, label = Conteo)) + 
-  geom_bar(stat = "identity", position = position_fill()) +
-  geom_text(aes(label = Porcentaje), position = position_fill(vjust = 0.5)) +
-  coord_polar(theta = "y") + 
-  theme_void() +
-  theme(axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  ggtitle(paste0('¿Que animales consideras tienen derechos los animales?'))
-
-Pregunta_4 <- tmp %>% group_by(Pregunta_4) %>% summarise(Conteo = n()) %>%
-  mutate(Porcentaje = paste0(round(Conteo/sum(Conteo),2)*100,'%')) %>%
-  filter(Pregunta_4 != "")
-
-ggplot(Pregunta_4, aes(x = "", y = Conteo, fill = Pregunta_4, label = Conteo)) + 
-  geom_bar(stat = "identity", position = position_fill()) +
-  geom_text(aes(label = Porcentaje), position = position_fill(vjust = 0.5)) +
-  coord_polar(theta = "y") + 
-  theme_void() +
-  theme(axis.title.x = element_blank(),
-        axis.title.y = element_blank()) +
-  ggtitle(paste0('¿Qué animales consideras tienen que ser protegidos jurídicamente?'))
+ggplot(encuestas, aes(x = Pregunta, fill = Opción)) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(breaks = seq(0,1, by = .2), labels = scales::percent) +
+  coord_flip() +
+  facet_wrap(~Facultad)
 
 
-list.files()
-
-Ciencias <- readxl::read_excel('Psicología.xlsx')
-
-conteo <- Ciencias %>% 
-  group_by(Facultad,Edad,Sexo) %>%
-  summarise(conteo = n()) %>%
-  mutate(conteo, encuestados = conteo/12)
-
-sum(conteo$encuestados)
-
-
-
-
-
-
-
+table(encuestas$Opción)
 
 
 
