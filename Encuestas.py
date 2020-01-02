@@ -8,6 +8,8 @@ Created on Tue Dec 31 00:08:51 2019
 
 import plotly.express as px
 import plotly.offline as pyo
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 import pandas as pd
 import os
@@ -18,17 +20,17 @@ os.listdir()
 encuestas = pd.read_csv('encuestas.csv')
 encuestas.head()
 
+##
+
 conteo = encuestas.Facultad.value_counts().reset_index()
 conteo['encuestados'] = conteo.Facultad/12
-
 
 df = px.data.tips()
 
 fig = px.pie(conteo, values='encuestados', names='index', title = 'Distribución de Encuestados Facultades UNAM')
 pyo.plot(fig)
 
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+###
 
 Pregunta_1 = encuestas.loc[encuestas.Pregunta == 1,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_2 = encuestas.loc[encuestas.Pregunta == 2,'Respuesta_texto'].value_counts().reset_index()
@@ -53,7 +55,7 @@ specs = [[{'type':'domain'}, {'type':'domain'}, {'type':'domain'}, {'type':'doma
 
 fig = make_subplots(rows=3, cols=4, specs=specs,
                     subplot_titles = ['Pregunta 1','Pregunta 2','Pregunta 3','Pregunta 4',
-                                      'Pregunta 5','Pregunta 6','7','8',
+                                      'Pregunta 5','Pregunta 6','Pregunta 7','Pregunta 8',
                                       'Pregunta 9','Pregunta 10','Pregunta 11','Pregunta 12',])
 
 #subplot_titles = ['¿Conoces de la existencia del derecho animal?','¿Consideras que los animales tienen derechos?','¿Qué derechos consideras tienen los animales?','¿Qué animales consideras tienen que ser protegidos jurídicamente?',
