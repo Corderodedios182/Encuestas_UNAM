@@ -10,6 +10,7 @@ import plotly.express as px
 import plotly.offline as pyo
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.plotly as py
 
 import pandas as pd
 import os
@@ -83,7 +84,83 @@ fig.update(layout_title_text='Se realizaron 12 Preguntas en diversas Facultades 
 
 pyo.plot(fig)
 
+#SEXO POR FACULTAD
+conteo_sexo = encuestas.Facultad.value_counts().reset_index()
+conteo_sexo['encuestados'] = conteo_sexo.Facultad/12
+conteo_sexo.columns = ['Facultad','Conteo','encuestados']
 
+
+Sexo = encuestas.groupby(['Sexo']).count().reset_index().loc[:,['Sexo','Edad']]
+Sexo.columns = ['Sexo','Conteo']
+Sexo.Conteo = Sexo.Conteo/12
+
+encuestas['numero'] = 1
+
+data = [go.Bar(
+    x=conteo_sexo['Facultad'],
+    y=conteo_sexo['encuestados']
+)]
+
+layout = go.Layout(
+    title='2018 Winter Olympic Medals by Country'
+)
+
+fig = go.Figure(data=data, layout=layout)
+pyo.plot(fig)
+
+#Sexo
+
+Masculino = encuestas[encuestas.Sexo == 'M'].Facultad.value_counts().reset_index()
+Masculino['encuestados'] = Masculino.Facultad/12
+Masculino.columns = ['Facultad','Conteo','encuestados']
+
+Mujeres = encuestas[encuestas.Sexo == 'F'].Facultad.value_counts().reset_index()
+Mujeres['encuestados'] = Mujeres.Facultad/12
+Mujeres.columns = ['Facultad','Conteo','encuestados']
+
+
+fig = go.Figure()
+fig.add_trace(go.Bar(
+    x=Masculino['Facultad'],
+    y=Masculino['encuestados'],
+    name='Hombres',
+    marker=dict(
+        color='rgba(58, 71, 80, 0.6)',
+        line=dict(color='rgba(58, 71, 80, 1.0)', width=3)
+    )
+))
+fig.add_trace(go.Bar(
+    x=Mujeres['Facultad'],
+    y=Mujeres['encuestados'],
+    name='Mujeres',
+    marker=dict(
+        color='rgba(246, 78, 139, 0.6)',
+        line=dict(color='rgba(246, 78, 139, 1.0)', width=3)
+        )
+))
+
+fig.update_layout(barmode='stack')
+pyo.plot(fig,"a.hmtl")
+
+
+#Rango edad
+
+R_Edad = encuestas.Edad.value_counts().reset_index()
+R_Edad['encuestados'] = R_Edad.R_Edad/12
+R_Edad.columns = ['Edad','Conteo','encuestados']
+
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    x=R_Edad['Edad'],
+    y=R_Edad['encuestados'],
+    name='Edades',
+    marker=dict(
+        color='rgba(246, 78, 139, 0.6)',
+        line=dict(color='rgba(246, 78, 139, 1.0)', width=3))
+    ))
+
+pyo.plot(fig,"a.hmtl")
 
 
 
