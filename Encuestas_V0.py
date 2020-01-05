@@ -15,7 +15,6 @@ from plotly.subplots import make_subplots
 import pandas as pd
 import plotly.graph_objects as go
 
-
 #####################
 #1 Inicio aplicación#
 #####################
