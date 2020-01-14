@@ -39,7 +39,7 @@ conteo.columns = ['Facultad','Conteo','encuestados']
 #Facultades
 trace_0 = go.Pie(labels=conteo.loc[:,'Facultad'], values=conteo.loc[:,'encuestados'])
 
-layout_0 = go.Layout(title = '% Muestra Facultades UNAM', xaxis = dict(title = 'xvalue',
+layout_0 = go.Layout(title = '% Muestra Facultades UNAs', xaxis = dict(title = 'xvalue',
                                     zeroline = False,
                                     showline = True), 
                        yaxis = dict(title = 'yvalue', 

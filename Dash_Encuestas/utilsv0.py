@@ -20,7 +20,7 @@ def get_header(app):
                 [
                     html.Img(
                         src=app.get_asset_url("unam.png"),
-                        style={'height':'5%', 'width':'5%'},
+                        className = "logo",
                     ),
                 ],
                 className="row",

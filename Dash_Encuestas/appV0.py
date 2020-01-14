@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output
 import os
 os.chdir('/home/carlos/Documentos/Encuestas_UNAM/Dash_Encuestas')
 
-from librerias import Muestra
+from librerias import (Muestra,Resultados, Conclusiones, Que_sigue)
 
 app = dash.Dash(
     __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
@@ -22,8 +22,12 @@ app.layout = html.Div(
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
-    if pathname == "/Dash_Encuestas/Muestra":
-        return Muestra.create_layout(app)
+    if pathname == "/Dash_Encuestas/Resultados":
+        return Resultados.create_layout(app)
+    elif pathname == "/Dash_Encuestas/Conclusiones":
+        return Conclusiones.create_layout(app)
+    elif pathname == "/Dash_Encuestas/Que_sigue":
+        return Que_sigue.create_layout(app)
     else:
         return Muestra.create_layout(app)
     
