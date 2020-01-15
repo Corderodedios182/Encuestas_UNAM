@@ -38,14 +38,36 @@ fig.add_trace(go.Box(
     y=tmp["Edad"],
     x=tmp["Facultad"],
     name='kale',
-))
+    boxpoints='all',
+    jitter=0.5,
+    whiskerwidth=0.2,
+    marker_size=2,
+    line_width=1)
+    )
 
 fig.update_layout(
     yaxis_title='Rango de Edades',
-    boxmode='group', # group together boxes of the different traces for each value of x,
-    paper_bgcolor='rgb(233,233,233)',
-    plot_bgcolor='rgb(233,233,233)',
+    yaxis=dict(
+        autorange=True,
+        showgrid=True,
+        zeroline=True,
+        dtick=3,
+        gridcolor='rgb(255, 255, 255)',
+        gridwidth=1,
+        zerolinecolor='rgb(255, 255, 255)',
+        zerolinewidth=2,
+    ),
+    margin=dict(
+        l=40,
+        r=30,
+        b=80,
+        t=100,
+    ),
+    paper_bgcolor='rgb(243, 243, 243)',
+    plot_bgcolor='rgb(243, 243, 243)',
+    showlegend=False
 )
+
 pyo.plot(fig)
 
 #Sexo
