@@ -14,40 +14,26 @@ def Header(app):
 
 
 def get_header(app):
-    header = html.Div(
-        [
-            html.Div(
-                [
+    header = html.Div([
+                html.Div([
                     html.Img(
-                        src=app.get_asset_url("unam.png"),
-                        className = "logo",
-                    ),
-                ],
-                className="row",
-            ),
-            html.Div(
-                [
+                        src=app.get_asset_url("derecho-animal.jpg"),
+                        style={'height':'5%', 'width':'5%'},
+                        className = "logo")],
+                    className="row"),
+                html.Div([
                     html.Div(
                         [html.H5("Encuesta Derecho Animal UNAM")],
-                        className="seven columns main-title",
-                    ),
-                    html.Div(
-                        [
+                        className="seven columns main-title"),
+                    html.Div([
                             dcc.Link(
                                 "Tere Baena Sanchez",
-                                href="",
-                                className="full-view-link",
-                            )
-                        ],
-                        className="five columns",
-                    ),
-                ],
+                                href="https://www.facebook.com/tere.baena.1",
+                                className="full-view-link")],
+                        className="five columns")],
                 className="twelve columns",
-                style={"padding-left": "0"},
-            ),
-        ],
-        className="row",
-    )
+                style={"padding-left": "0"})
+                ],className="row")
     return header
 
 
