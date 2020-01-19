@@ -213,8 +213,8 @@ def create_layout(app):
                         className = "row",
                         style = {"margin-bottom":"35px"},
                             )
-                        ], className = "row"
+                        ],className = "sub_page"
                     )
-                ])
+                ],className="page")
         
         

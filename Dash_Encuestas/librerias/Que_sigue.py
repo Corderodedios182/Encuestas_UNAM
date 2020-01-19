@@ -78,53 +78,74 @@ fig_2.update_layout(barmode='stack', title = 'Propoción de Mujeres y Hombres', 
 ########################
 
 def create_layout(app):
-    
     return html.Div(
         [
-        
-        html.Div([Header(app)]),
-            #page 1
-            html.Div([
-                    
-                # Row 3
-                html.Div(
-                        [
-                            html.Div(
-                                [
-                                    html.H5("Que sigue?"),
-                                    html.Br([]),
-                                    html.P(
-                                        "",
-                                        style={"color": "#ffffff"},
-                                        className="row",
-                                    ),
-                                ],
-                                className="product",
-                            )
-                        ],
-                        className="row",
-                        ),
-                    #Row 4
+            Header(app),
+            # page 6
+            html.Div(
+                [
+                    # Row 1
                     html.Div(
                         [
                             html.Div(
                                 [
-                                    html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded",),
-                                    dcc.Graph(id='plot_0',figure = fig_0)
-                                ],  className="six columns", style={'width': '50%', 'display': 'inline-block'}
+                                    html.H6("News", className="subtitle padded"),
+                                    html.Br([]),
+                                    html.Div(
+                                        [
+                                            html.P(
+                                                "Colocar tabla con Resultados"
+                                            ),
+                                            html.P(
+                                                "Arreglar formato de Resultados"
+                                            ),
+                                        ],
+                                        style={"color": "#7a7a7a"},
                                     ),
+                                ],
+                                className="row",
+                            ),
                             html.Div(
                                 [
-                                    html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded",),
-                                    dcc.Graph(id='plot_1',figure = fig_2)
-                                ],  className="six columns", style={'width': '50%', 'align': 'right', 'display': 'inline-block'}
+                                    html.H6("Reviews", className="subtitle padded"),
+                                    html.Br([]),
+                                    html.Div(
+                                        [
+                                            html.Li("Colocar botones para filtrar"),
+                                            html.Li(
+                                                "Mejorar el rendimiento de las gráficas"
+                                            ),
+                                            html.Li(
+                                                "Quantitative Equity Group, the fund's advisor, is among the world's largest equity index managers."
+                                            ),
+                                        ],
+                                        id="reviews-bullet-pts",
                                     ),
-                        ],
-                        className = "row",
-                        style = {"margin-bottom":"35px"},
+                                    html.Div(
+                                        [
+                                            html.P(
+                                                "Did you know? The fund launched in 1976 as First Index Investment Trust—the nation's first index fund available to individual investors."
+                                            ),
+                                            html.Br([]),
+                                            html.P(
+                                                "* The performance of an index is not an exact representation of any particular investment, as you cannot invest directly in an index."
+                                            ),
+                                            html.Br([]),
+                                            html.P(
+                                                "Past performance is no guarantee of future returns. See performance data current to the most recent month-end."
+                                            ),
+                                        ],
+                                        style={"color": "#7a7a7a"},
+                                    ),
+                                ],
+                                className="row",
                             ),
-                        ], className = "row"
+                        ],
+                        className="row ",
                     )
-                ])
-        
-        
+                ],
+                className="sub_page",
+            ),
+        ],
+        className="page",
+    )

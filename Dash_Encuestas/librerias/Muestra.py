@@ -170,7 +170,7 @@ def create_layout(app):
                         html.Div([
                                     html.H6("Rango de Edades Facultades", className="subtitle padded"),
                                     dcc.Graph(id='plot_2',figure = fig_2)])])
-                    ], className = "row")
-                ])
+                    ], className="sub_page"),
+                ], className="page",)
         
         
