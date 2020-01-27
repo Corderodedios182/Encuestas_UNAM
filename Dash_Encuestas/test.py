@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan  3 19:02:10 2020
+Created on Thu Jan 23 12:12:11 2020
 
 @author: carlos
 """
-# -*- coding: utf-8 -*-
 
 import dash
 import dash_core_components as dcc
