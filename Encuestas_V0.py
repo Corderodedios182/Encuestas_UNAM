@@ -12,6 +12,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 import pandas as pd
+import numpy as np
 import plotly.graph_objects as go
 
 #####################
@@ -38,9 +39,27 @@ Facultades = [{'label':i,'value':i} for i in Facultades_0]
 ######################
 #3 Creando el grafico#
 ######################
-
+df = conteo
 #Facultades
+def nueva(df):
+    nb_leads = df['encuestados'].sum()
+    types = df['Facultad'].unique().tolist()
+    values = []
+    
+    for case_type in types:
+        nb_type = df[df['Facultad'] == case_type].iloc[:,2]
+        values.append(nb_type / nb_leads)
+        
+    pd.DataFrame(values)
+    trace = go.Pie(labels = np.array(types), values = np.array([values]))
+    layout =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
+    
+    fig = go.Figure(data = [trace], layout = layout)
 
+    pyo.plot(fig_1)
+    
+    return dict(data=[trace], layout=layout)
 
 ########################
 #4 Creacion Dash Layout#
@@ -50,15 +69,12 @@ app.layout = html.Div([
 
     #Boton desplegable
        html.P([
-        html.Label("Facultades"),
         dcc.Dropdown(id = 'facultad', 
                      options = Facultades,
-                     value = Facultades,
-                     multi = True)],
-        style = {'width': '400px',
-                 'fontSize' : '20px',
-                 'padding-left' : '100px',
-                 'display': 'inline-block'}), 
+                     value = "all",
+                     clearable=False)
+        ],
+        ), 
     #Graficas
     html.Div([
         #Facultades
@@ -71,17 +87,9 @@ app.layout = html.Div([
 #5 Funciones desplegables#
 ##########################
 @app.callback(Output('grafica', 'figure'),[Input('facultad', 'value')])
-def Facultades(filtrar):
-
-    filtro = conteo.loc[:'Facultad' == filtrar]
-    
-    trace_0 = go.Pie(labels=filtro.loc[:,'Facultad'], values=filtro.loc[:,'encuestados'])
-    layout_0 = go.Layout(legend = {"x":-1,"y":.5},  margin=dict(l=40,r=30,b=80,t=100,),
-                    paper_bgcolor='rgb(243, 243, 243)',
-                    plot_bgcolor='rgb(243, 243, 243)')
-    fig_0 = go.Figure(data = [trace_0], layout = layout_0)
-
-    return fig_0
+def nueva_final(df):
+    df = conteo
+    return nueva(df)
     
 #############
 #6 Ejecucion#

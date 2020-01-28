@@ -48,62 +48,62 @@ fig_1 = go.Figure(data = [trace_1], layout = layout_1)
 
 trace_2 = go.Pie(labels=Pregunta_2.loc[:,'index'], values=Pregunta_2.loc[:,'Respuesta_texto'])
 layout_2 =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)', template = 'seaborn')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_2 = go.Figure(data = [trace_2], layout = layout_2)
 
 #################
 trace_3 = go.Pie(labels=Pregunta_3.loc[:,'index'], values=Pregunta_3.loc[:,'Respuesta_texto'])
 layout_3 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)',template = 'simple_white')
+                    paper_bgcolor='rgb(223, 223, 223)',template = 'ggplot2')
 fig_3 = go.Figure(data = [trace_3], layout = layout_3)
 
 trace_4 = go.Pie(labels=Pregunta_4.loc[:,'index'], values=Pregunta_4.loc[:,'Respuesta_texto'])
 layout_4 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)',template = 'plotly')
+                    paper_bgcolor='rgb(223, 223, 223)',template = 'ggplot2')
 fig_4 = go.Figure(data = [trace_4], layout = layout_4)
 
 #################
 trace_5 = go.Pie(labels=Pregunta_5.loc[:,'index'], values=Pregunta_5.loc[:,'Respuesta_texto'])
 layout_5 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_5 = go.Figure(data = [trace_5], layout = layout_5)
 
 trace_6 = go.Pie(labels=Pregunta_6.loc[:,'index'], values=Pregunta_6.loc[:,'Respuesta_texto'])
 layout_6 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_6 = go.Figure(data = [trace_6], layout = layout_6)
 
 #################
 trace_7 = go.Pie(labels=Pregunta_7.loc[:,'index'], values=Pregunta_7.loc[:,'Respuesta_texto'])
 layout_7 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_7 = go.Figure(data = [trace_7], layout = layout_7)
 
 trace_8 = go.Pie(labels=Pregunta_8.loc[:,'index'], values=Pregunta_8.loc[:,'Respuesta_texto'])
 layout_8 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_8 = go.Figure(data = [trace_8], layout = layout_8)
 
 #################
 trace_9 = go.Pie(labels=Pregunta_9.loc[:,'index'], values=Pregunta_9.loc[:,'Respuesta_texto'])
 layout_9 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_9 = go.Figure(data = [trace_9], layout = layout_9)
 
 trace_10 = go.Pie(labels=Pregunta_10.loc[:,'index'], values=Pregunta_10.loc[:,'Respuesta_texto'])
 layout_10 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_10 = go.Figure(data = [trace_10], layout = layout_10)
 
 #################
 trace_11 = go.Pie(labels=Pregunta_11.loc[:,'index'], values=Pregunta_11.loc[:,'Respuesta_texto'])
 layout_11 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_11 = go.Figure(data = [trace_11], layout = layout_11)
 
 trace_12 = go.Pie(labels=Pregunta_12.loc[:,'index'], values=Pregunta_12.loc[:,'Respuesta_texto'])
 layout_12 = go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=15,r=10,b=45,t=65,),
-                    paper_bgcolor='rgb(223, 223, 223)')
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_12 = go.Figure(data = [trace_12], layout = layout_12)
 
 ########################
