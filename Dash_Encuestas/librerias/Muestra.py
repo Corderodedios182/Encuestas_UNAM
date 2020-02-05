@@ -16,7 +16,7 @@ from utilsv0 import Header
 #2 Importando datos#
 ####################
 
-encuestas = pd.read_csv('/home/carlos/Documentos/Encuestas_UNAM/Dash_Encuestas/datos/encuestas.csv')
+encuestas = pd.read_csv('https://raw.githubusercontent.com/Corderodedios182/Encuestas_UNAM/master/Dash_Encuestas/datos/encuestas.csv')
 
 #General
 conteo = encuestas.Facultad.value_counts().reset_index()

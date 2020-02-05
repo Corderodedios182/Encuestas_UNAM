@@ -32,5 +32,5 @@ def display_page(pathname):
     else:
         return Muestra.create_layout(app)
         
-if __name__ == "__main__":
-    app.run_server()
+if __name__ == '__main__':
+    app.run_server(debug = True)

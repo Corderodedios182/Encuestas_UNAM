@@ -17,7 +17,7 @@ from utilsv0 import Header
 #2 Importando datos#
 ####################
 
-encuestas = pd.read_csv('/home/carlos/Documentos/Encuestas_UNAM/Dash_Encuestas/datos/encuestas.csv')
+encuestas = pd.read_csv('https://raw.githubusercontent.com/Corderodedios182/Encuestas_UNAM/master/Dash_Encuestas/datos/encuestas.csv')
 
 #General
 Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
