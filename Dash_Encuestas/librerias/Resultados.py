@@ -20,20 +20,20 @@ from utilsv0 import Header
 encuestas = pd.read_csv('/home/carlos/Documentos/Encuestas_UNAM/Dash_Encuestas/datos/encuestas.csv')
 
 #General
-Pregunta_1 = encuestas.loc[encuestas.Pregunta == 1,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_2 = encuestas.loc[encuestas.Pregunta == 2,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_3 = encuestas.loc[encuestas.Pregunta == 3,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_4 = encuestas.loc[encuestas.Pregunta == 4,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_2 = encuestas.loc[(encuestas.Pregunta == 2) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_3 = encuestas.loc[(encuestas.Pregunta == 3) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_4 = encuestas.loc[(encuestas.Pregunta == 4) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
 
-Pregunta_5 = encuestas.loc[encuestas.Pregunta == 5,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_6 = encuestas.loc[encuestas.Pregunta == 6,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_7 = encuestas.loc[encuestas.Pregunta == 7,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_8 = encuestas.loc[encuestas.Pregunta == 8,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_5 = encuestas.loc[(encuestas.Pregunta == 5) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_6 = encuestas.loc[(encuestas.Pregunta == 6) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_7 = encuestas.loc[(encuestas.Pregunta == 7) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_8 = encuestas.loc[(encuestas.Pregunta == 8) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
 
-Pregunta_9 = encuestas.loc[encuestas.Pregunta == 9,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_10 = encuestas.loc[encuestas.Pregunta == 10,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_11 = encuestas.loc[encuestas.Pregunta == 11,'Respuesta_texto'].value_counts().reset_index()
-Pregunta_12 = encuestas.loc[encuestas.Pregunta == 12,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_9 = encuestas.loc[(encuestas.Pregunta == 9) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_10 = encuestas.loc[(encuestas.Pregunta == 10) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_11 = encuestas.loc[(encuestas.Pregunta == 11) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_12 = encuestas.loc[(encuestas.Pregunta == 12) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()
 
 ######################
 #3 Creando el grafico#
@@ -244,7 +244,7 @@ def create_layout(app):
                                     )
                         ],
                         className = "row",
-                        style = {"margin-bottom":"35px"},
+                        style = {"margin-bottom":"50px"},
                             )
                         ],className = "sub_page"
                     )

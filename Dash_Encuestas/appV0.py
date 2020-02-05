@@ -7,12 +7,12 @@ from dash.dependencies import Input, Output
 import os
 os.chdir('/home/carlos/Documentos/Encuestas_UNAM/Dash_Encuestas')
 
-from librerias import (Muestra, Conclusiones, Que_sigue, borrame)
+from librerias import (Muestra, Conclusiones, Que_sigue, Resultados)
 
 app = dash.Dash(
     __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
-app.config.suppress_callback_exceptions = True
+
 server = app.server
 
 
@@ -24,7 +24,7 @@ app.layout = html.Div(
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
     if pathname == "/Dash_Encuestas/Resultados":
-        return borrame.create_layout(app)
+        return Resultados.create_layout(app)
     elif pathname == "/Dash_Encuestas/Conclusiones":
         return Conclusiones.create_layout(app)
     elif pathname == "/Dash_Encuestas/Que_sigue":
@@ -34,6 +34,3 @@ def display_page(pathname):
         
 if __name__ == "__main__":
     app.run_server()
-
-
-#Ya casi queda, aunque no no se por que no reconoce graph? como salida

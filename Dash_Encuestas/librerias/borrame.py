@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Jan  5 23:47:18 2020
-
 @author: carlos
 """
+from appV0 import app
+from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 
@@ -31,13 +32,9 @@ Facultades = [{'label':i,'value':i} for i in Facultades_0]
 ######################
 #3 Creando el grafico#
 ######################
-value = 'Derecho'
-
-Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) &
-                               (encuestas.Facultad == value),'Respuesta_texto'].value_counts().reset_index()
+Pregunta_1 = encuestas.loc[encuestas.Pregunta == 1,'Respuesta_texto'].value_counts().reset_index()
 
 trace_1 = go.Pie(labels=Pregunta_1.loc[:,'index'], values=Pregunta_1.loc[:,'Respuesta_texto'])
-
 layout_1 =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
                           paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
                     
@@ -46,7 +43,7 @@ fig_1 = go.Figure(data = [trace_1], layout = layout_1)
 ########################
 #4 Creacion Dash Layout#
 ########################
-
+value = 'Derecho'
 def create_layout(app):
     
     return html.Div(
@@ -68,28 +65,25 @@ def create_layout(app):
                         className="row"),
                 # Boton
                  html.Div([
-                    dcc.Dropdown(id = 'tabs', 
+                    dcc.Dropdown(id='filtro_13', 
                      options = Facultades,
                      value = "all",
-                     clearable=False),
-                    html.Div(id='output-tab')
+                     clearable=False)
                     ]),
-                #Row 4
-                html.Div([
-                         html.Div([
-                                    html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded"),
-                                    dcc.Graph(id='plot_0',figure = fig_1)],
-                                    className="six columns", style={'width': '50%', 'display': 'inline-block'})],
-                                className = "row", style = {"margin-bottom":"35px"}),
+                 html.Div(id='grafica_13',children=dcc.Graph(id='dummy'))
                     ], className="sub_page"),
                 ], className="page",)
 
+@app.callback(Output('grafica_13', 'children'),[Input('filtro_13', 'value')])
+def display_content(value):
+    
+    Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) &
+                               (encuestas.Facultad == value),'Respuesta_texto'].value_counts().reset_index()
 
-
-
-
-
-
-
-
-
+    trace_1 = go.Pie(labels=Pregunta_1.loc[:,'index'], values=Pregunta_1.loc[:,'Respuesta_texto'])
+    layout_1 =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
+                          paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
+                    
+    fig_1 = go.Figure(data = [trace_1], layout = layout_1)    
+    
+    return fig_1

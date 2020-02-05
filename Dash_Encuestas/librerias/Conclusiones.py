@@ -91,7 +91,13 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H5("Conclusiones"),
+                                      html.P(
+                                            "El fundamento para determinar si los animales son portadores de derechos no depende de que se les otorgue el estatus de personas jurídicas, \
+                                            sino que son sujetos de derechos porque cuentan con la condición de ser seres sintientes." ),
+                                      html.P(
+                                            "De-cosificar a los animales es el primer paso, mediante la reforma al Código Civil Federal, cuya inclusión del bienestar animal es necesaria, \
+                                            ya que las problemáticas y situaciones en las que se enfrentan los animales no son finitas, pues de ciertas prácticas se derivan otras cada vez \
+                                            más crueles e injustificadas." ),
                                     html.Br([]),
                                     html.P(
                                         "",
@@ -104,25 +110,6 @@ def create_layout(app):
                         ],
                         className="row",
                         ),
-                    #Row 4
-                    html.Div(
-                        [
-                            html.Div(
-                                [
-                                    html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded",),
-                                    dcc.Graph(id='plot_0',figure = fig_0)
-                                ],  className="six columns", style={'width': '50%', 'display': 'inline-block'}
-                                    ),
-                            html.Div(
-                                [
-                                    html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded",),
-                                    dcc.Graph(id='plot_1',figure = fig_2)
-                                ],  className="six columns", style={'width': '50%', 'align': 'right', 'display': 'inline-block'}
-                                    ),
-                        ],
-                        className = "row",
-                        style = {"margin-bottom":"35px"},
-                            ),
                         ], className="sub_page"
                     ),
                 ], className="page",)

@@ -23,11 +23,11 @@ def get_header(app):
                     className="row"),
                 html.Div([
                     html.Div(
-                        [html.H5("Encuesta Derecho Animal UNAM")],
+                        [html.H5("Análisis estadístico sobre derecho animal")],
                         className="seven columns main-title"),
                     html.Div([
                             dcc.Link(
-                                "Tere Baena Sanchez",
+                                "Logo UNAM",
                                 href="https://www.facebook.com/tere.baena.1",
                                 className="full-view-link")],
                         className="five columns")],

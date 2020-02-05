@@ -89,53 +89,42 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H6("News", className="subtitle padded"),
+                                    html.H6("Puntos de la línea de investigación", className="subtitle padded"),
                                     html.Br([]),
-                                    html.Div(
-                                        [
-                                            html.P(
-                                                "Colocar tabla con Resultados"
-                                            ),
-                                            html.P(
-                                                "Arreglar formato de Resultados"
-                                            ),
-                                        ],
-                                        style={"color": "#7a7a7a"},
-                                    ),
                                 ],
                                 className="row",
                             ),
                             html.Div(
                                 [
-                                    html.H6("Reviews", className="subtitle padded"),
                                     html.Br([]),
                                     html.Div(
                                         [
-                                            html.Li("Colocar botones para filtrar"),
+                                            html.Li("La investigación se basa en el análisis jurídico-lingüístico del Libro segundo: De los bienes. Títulos primero y segundo \
+                                                    (Clasificación de los bienes), capítulos I, II, III, IV, V; títulos tercero y cuarto (De la propiedad), capítulos I, II \
+                                                    (De la apropiación de los animales) y IV, del Código Civil Federal (CCF) mexicano."),
                                             html.Li(
-                                                "Mejorar el rendimiento de las gráficas"
+                                                "Por lo que se requiere un manejo de información a partir de la interpretación jurídica, del campo de la lingüística aplicada y de la biología."
                                             ),
                                             html.Li(
-                                                "Quantitative Equity Group, the fund's advisor, is among the world's largest equity index managers."
+                                                "Se llevará a cabo un estudio comparado de los códigos civiles de Alemania, Austria, Suiza y Francia, en cuyas legislaciones los animales han dejado de ser cosas."
                                             ),
+                                            html.Li(
+                                                "Se realizará el análisis lingüístico-biológico del concepto de animal."
+                                            ),
+                                            html.Li(
+                                                "En cuanto hace al reconocimiento de derechos se pretende un análisis categórico de éstos (con ciertas excepciones de acuerdo a la especie), \
+                                                pues si bien el sector universitario opinó que todos los animales poseen derechos, es cierto que tales derechos deben ser estudiados a profundidad."
+                                            ),
+                                            html.Li(
+                                                "Tratándose del bienestar animal, durante el sacrificio (ley de sanidad y normas oficiales mexicanas) o en la vida libre de los animales, éste representa un avance en la materia."
+                                            ),
+                                            html.Li(
+                                                "No obstante, sin olvidar que la crueldad hacia ellos y su sufrimiento sigue estando presente en la industria cárnica y farmacéutica, y en los hogares mexicanos, \
+                                                se estudiarán las implicaciones legales (obligaciones de hacer o no hacer) sobre la muerte del animal con aturdimiento y la diferencia que existe entre este método \
+                                                y la eutanasia (cuando ya no es posible mantener con vida a un animal)."
+                                            )
                                         ],
                                         id="reviews-bullet-pts",
-                                    ),
-                                    html.Div(
-                                        [
-                                            html.P(
-                                                "Did you know? The fund launched in 1976 as First Index Investment Trust—the nation's first index fund available to individual investors."
-                                            ),
-                                            html.Br([]),
-                                            html.P(
-                                                "* The performance of an index is not an exact representation of any particular investment, as you cannot invest directly in an index."
-                                            ),
-                                            html.Br([]),
-                                            html.P(
-                                                "Past performance is no guarantee of future returns. See performance data current to the most recent month-end."
-                                            ),
-                                        ],
-                                        style={"color": "#7a7a7a"},
                                     ),
                                 ],
                                 className="row",
